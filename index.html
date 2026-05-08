@@ -311,23 +311,7 @@
 </section>
 <!-- Contact Section -->
 <section class="py-32 bg-primary text-background" id="contact">
-<div class="max-w-container-max-width mx-auto px-margin text-center space-y-16">
-<h2 class="font-headline-md text-headline-md">CONTACT_TERMINAL</h2>
-<p class="font-body-lg text-body-lg max-w-2xl mx-auto">READY TO START A NEW MISSION? SEND A MESSAGE TO INITIATE COMMUNICATION.</p>
-<div class="flex flex-col md:flex-row justify-center gap-gutter">
-<a class="bg-background text-primary border-4 border-background p-6 flex items-center justify-center gap-4 chunky-button font-headline-md text-[16px] hover:bg-background hover:text-primary hover:border-primary transition-all" href="https://wa.me/08571114211" target="_blank">
-<span class="material-symbols-outlined">chat</span>
-                        WHATSAPP
-                    </a>
-<a class="bg-background text-primary border-4 border-background p-6 flex items-center justify-center gap-4 chunky-button font-headline-md text-[16px] hover:bg-background hover:text-primary hover:border-primary transition-all" href="mailto:akhdanghaisan21@gmail.com">
-<span class="material-symbols-outlined">mail</span>
-                        GMAIL
-                    </a>
-</div>
-<div class="pt-12 font-body-md">
-                    CURRENT STATUS: <span class="animate-pulse">● ONLINE</span>
-</div>
-</div>
+<div class="max-w-container-max-width mx-auto px-margin text-center space-y-16"><h2 class="font-headline-md text-headline-md">CONTACT_TERMINAL</h2><p class="font-body-lg text-body-lg max-w-2xl mx-auto">READY TO START A NEW MISSION? SEND A MESSAGE TO INITIATE COMMUNICATION.</p><div class="max-w-xl mx-auto space-y-12"><div class="bg-background p-8 border-8 border-background pixel-border-thick space-y-8"><div class="space-y-6"><div class="flex flex-col text-left"><label for="contact-subject" class="font-label-sm text-[12px] text-primary mb-2">SUBJECT_</label><input type="text" id="contact-subject" class="bg-background border-4 border-primary text-primary font-body-md p-3 focus:ring-0 focus:outline-none placeholder-primary/30 w-full" placeholder="&gt; ENTER SUBJECT..."></div><div class="flex flex-col text-left"><label for="contact-message" class="font-label-sm text-[12px] text-primary mb-2">MESSAGE_</label><textarea id="contact-message" rows="4" class="bg-background border-4 border-primary text-primary font-body-md p-3 focus:ring-0 focus:outline-none placeholder-primary/30 w-full resize-none" placeholder="&gt; ENTER MESSAGE..."></textarea></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><button onclick="const sub = document.getElementById('contact-subject').value; const body = document.getElementById('contact-message').value; window.location.href = `mailto:akhdanghaisan21@gmail.com?subject=${encodeURIComponent(sub)}&amp;body=${encodeURIComponent(body)}`;" class="w-full bg-primary text-background border-4 border-primary p-4 flex items-center justify-center gap-2 chunky-button font-headline-md text-[14px] hover:invert transition-all"><span class="material-symbols-outlined">mail</span>GMAIL</button><a href="https://wa.me/08571114211" target="_blank" class="w-full bg-background text-primary border-4 border-primary p-4 flex items-center justify-center gap-2 chunky-button font-headline-md text-[14px] hover:bg-primary hover:text-background transition-all"><img src="{{DATA:IMAGE:IMAGE_8}}" alt="WhatsApp" class="h-8 w-8 object-contain"></a></div></div><div class="pt-4 font-body-md">CURRENT STATUS: <span class="animate-pulse">● ONLINE</span></div></div></div>
 </section>
 </main>
 <!-- Footer -->
@@ -350,6 +334,10 @@
 <button class="fixed bottom-8 right-8 bg-primary text-background p-4 pixel-border chunky-button z-50 group">
 <span class="material-symbols-outlined group-hover:rotate-12 transition-transform">keyboard_arrow_up</span>
 </button>
+
+
+
+
 
 
 </body></html>
