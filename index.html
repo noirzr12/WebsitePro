@@ -1,11 +1,13 @@
-<!DOCTYPE html><html class="dark" lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!DOCTYPE html>
+
+<html class="dark" data-stitch-anim-opacity="true" lang="en" style="opacity: 0;"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>NOIRZ // DIGITAL DECAY PORTFOLIO</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -190,7 +192,27 @@
             clip-path: polygon(0 4px, 4px 4px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
         }
     </style>
-</head>
+<style>
+@keyframes glitch-teleport {
+  0% { clip-path: inset(40% 0 61% 0); transform: skew(0.15deg); }
+  20% { clip-path: inset(92% 0 1% 0); transform: skew(0.85deg); }
+  40% { clip-path: inset(43% 0 1% 0); transform: skew(0.65deg); }
+  60% { clip-path: inset(25% 0 58% 0); transform: skew(0.15deg); }
+  80% { clip-path: inset(54% 0 7% 0); transform: skew(0.55deg); }
+  100% { clip-path: inset(58% 0 43% 0); transform: skew(0.35deg); }
+}
+.glitch-active {
+  animation: glitch-teleport 0.2s steps(2, end) infinite;
+  filter: hue-rotate(90deg) contrast(150%);
+}
+.stabilize-active {
+  animation: stabilize 0.5s ease-out forwards;
+}
+@keyframes stabilize {
+  from { filter: brightness(2) contrast(1.5) blur(5px); opacity: 0; }
+  to { filter: brightness(1) contrast(1) blur(0); opacity: 1; }
+}
+</style></head>
 <body class="font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 <div class="glitch-overlay"></div>
 <!-- Top Navigation Shell -->
@@ -198,10 +220,10 @@
 <div class="flex justify-between items-center px-margin py-md w-full max-w-full">
 <div class="font-headline-lg text-headline-lg text-primary-fixed animate-pulse tracking-tighter">ZIDANE</div>
 <nav class="hidden md:flex gap-lg items-center">
-<a class="font-terminal-sm text-terminal-sm uppercase tracking-widest text-primary-fixed font-bold border-b-2 border-primary-fixed pb-1 cursor-pointer active:scale-95 transition-transform" href="#about">ABOUT</a>
-<a class="font-terminal-sm text-terminal-sm uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed transition-colors duration-300 hover:skew-x-2 hover:translate-y-[-2px] hover:bg-primary-container/10 transition-all cursor-pointer active:scale-95" href="#skills">SKILLS</a>
-<a class="font-terminal-sm text-terminal-sm uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed transition-colors duration-300 hover:skew-x-2 hover:translate-y-[-2px] hover:bg-primary-container/10 transition-all cursor-pointer active:scale-95" href="#portfolio">PORTFOLIO</a>
-<a class="font-terminal-sm text-terminal-sm uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed transition-colors duration-300 hover:skew-x-2 hover:translate-y-[-2px] hover:bg-primary-container/10 transition-all cursor-pointer active:scale-95" href="#contact">CONTACT</a>
+<a class="font-terminal-sm text-terminal-sm uppercase tracking-widest text-primary-fixed font-bold border-b-2 border-primary-fixed pb-1 cursor-pointer active:scale-95 transition-transform" href="#about" onclick="const targetId = this.getAttribute('href')?.substring(1) || this.textContent.toLowerCase().replace(' ', ''); const target = document.getElementById(targetId); if(target) { document.body.classList.add('glitch-active'); setTimeout(() =&gt; { target.scrollIntoView(); document.body.classList.remove('glitch-active'); target.classList.add('stabilize-active'); setTimeout(() =&gt; target.classList.remove('stabilize-active'), 500); }, 250); return false; }">ABOUT</a>
+<a class="font-terminal-sm text-terminal-sm uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed transition-colors duration-300 hover:skew-x-2 hover:translate-y-[-2px] hover:bg-primary-container/10 transition-all cursor-pointer active:scale-95" href="#skills" onclick="const targetId = this.getAttribute('href')?.substring(1) || this.textContent.toLowerCase().replace(' ', ''); const target = document.getElementById(targetId); if(target) { document.body.classList.add('glitch-active'); setTimeout(() =&gt; { target.scrollIntoView(); document.body.classList.remove('glitch-active'); target.classList.add('stabilize-active'); setTimeout(() =&gt; target.classList.remove('stabilize-active'), 500); }, 250); return false; }">SKILLS</a>
+<a class="font-terminal-sm text-terminal-sm uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed transition-colors duration-300 hover:skew-x-2 hover:translate-y-[-2px] hover:bg-primary-container/10 transition-all cursor-pointer active:scale-95" href="#portfolio" onclick="const targetId = this.getAttribute('href')?.substring(1) || this.textContent.toLowerCase().replace(' ', ''); const target = document.getElementById(targetId); if(target) { document.body.classList.add('glitch-active'); setTimeout(() =&gt; { target.scrollIntoView(); document.body.classList.remove('glitch-active'); target.classList.add('stabilize-active'); setTimeout(() =&gt; target.classList.remove('stabilize-active'), 500); }, 250); return false; }">PORTFOLIO</a>
+<a class="font-terminal-sm text-terminal-sm uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed transition-colors duration-300 hover:skew-x-2 hover:translate-y-[-2px] hover:bg-primary-container/10 transition-all cursor-pointer active:scale-95" href="#contact" onclick="const targetId = this.getAttribute('href')?.substring(1) || this.textContent.toLowerCase().replace(' ', ''); const target = document.getElementById(targetId); if(target) { document.body.classList.add('glitch-active'); setTimeout(() =&gt; { target.scrollIntoView(); document.body.classList.remove('glitch-active'); target.classList.add('stabilize-active'); setTimeout(() =&gt; target.classList.remove('stabilize-active'), 500); }, 250); return false; }">CONTACT</a>
 <span class="material-symbols-outlined text-primary-fixed cursor-pointer">music_note</span>
 </nav>
 <div class="md:hidden">
@@ -226,9 +248,9 @@
 <span class="ml-xs w-3 h-5 bg-primary-fixed animate-[pulse_0.5s_infinite]"></span>
 </div>
 <div class="flex flex-wrap gap-md">
-<button class="px-lg py-md border-neon font-terminal-sm uppercase tracking-widest glitch-hover transition-all duration-200">ABOUT ME</button>
-<button class="px-lg py-md border-neon font-terminal-sm uppercase tracking-widest glitch-hover transition-all duration-200">SKILLS</button>
-<button class="px-lg py-md border-neon font-terminal-sm uppercase tracking-widest glitch-hover transition-all duration-200">CONTACT</button>
+<button class="px-lg py-md border-neon font-terminal-sm uppercase tracking-widest glitch-hover transition-all duration-200" href="#about" onclick="const targetId = this.getAttribute('href')?.substring(1) || this.textContent.toLowerCase().replace(' ', ''); const target = document.getElementById(targetId); if(target) { document.body.classList.add('glitch-active'); setTimeout(() =&gt; { target.scrollIntoView(); document.body.classList.remove('glitch-active'); target.classList.add('stabilize-active'); setTimeout(() =&gt; target.classList.remove('stabilize-active'), 500); }, 250); return false; }">ABOUT ME</button>
+<button class="px-lg py-md border-neon font-terminal-sm uppercase tracking-widest glitch-hover transition-all duration-200" href="#skills" onclick="const targetId = this.getAttribute('href')?.substring(1) || this.textContent.toLowerCase().replace(' ', ''); const target = document.getElementById(targetId); if(target) { document.body.classList.add('glitch-active'); setTimeout(() =&gt; { target.scrollIntoView(); document.body.classList.remove('glitch-active'); target.classList.add('stabilize-active'); setTimeout(() =&gt; target.classList.remove('stabilize-active'), 500); }, 250); return false; }">SKILLS</button>
+<button class="px-lg py-md border-neon font-terminal-sm uppercase tracking-widest glitch-hover transition-all duration-200" href="#contact" onclick="const targetId = this.getAttribute('href')?.substring(1) || this.textContent.toLowerCase().replace(' ', ''); const target = document.getElementById(targetId); if(target) { document.body.classList.add('glitch-active'); setTimeout(() =&gt; { target.scrollIntoView(); document.body.classList.remove('glitch-active'); target.classList.add('stabilize-active'); setTimeout(() =&gt; target.classList.remove('stabilize-active'), 500); }, 250); return false; }">CONTACT</button>
 </div>
 <div class="mt-xl flex flex-col items-center justify-center md:items-start">
 <div class="font-label-caps text-label-caps text-primary-fixed animate-bounce tracking-[0.5em] mb-sm">PRESS START</div>
@@ -237,7 +259,7 @@
 </div>
 </section>
 <!-- About Me Section -->
-<section class="py-xl px-margin grid grid-cols-1 md:grid-cols-12 gap-gutter items-center" id="about">
+<section class="py-xl px-margin relative" id="about">
 <div class="md:col-span-5 order-2 md:order-1">
 <div class="cyber-card p-lg border-neon relative overflow-hidden">
 <div class="scanline-move"></div>
@@ -249,13 +271,13 @@
 </div>
 <div class="md:col-span-7 flex justify-center md:justify-end order-1 md:order-2">
 <div class="relative w-64 h-64 md:w-80 md:h-80 border-4 border-primary-fixed p-sm pixel-corners">
-<img alt="Cyberpunk Portrait" class="w-full h-full object-cover grayscale contrast-125" data-alt="A pixelated, glitch-heavy portrait of a designer in a dark room illuminated by neon green terminal screens. The visual style is grainy and high-contrast, featuring digital artifacts and chromatic aberration. The designer wears a techwear hoodie, looking directly at the camera with a serious expression. Neon green light spills across their face, creating a dramatic cyber-hacker atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyX9P6m8rb5qeGv__liW6MyWt8YEEzKRoaHJjlf9JcyE7-XjCyRDex05Qkx2iISv6_RTWVz9yX32yjGhk5zdPKJKHZ9FpWx9Z60Fm4KfcGQqXDRn3nUwY7l6yg6ouFCsfkhrgvUOOY4m1vcwKlUqdF4l8UENjqt8G46n1GOAgjp3lld9_HQsfXGq4CbSt7DjaF3-DdASNX9xXBg6Td9boff9d6b4nMXfVkMuFu1-b0Rm8Mt2Kguw_Gkk9YyzJ7qAbKS-bfPO5bzsA">
+<img alt="Cyberpunk Portrait" class="w-full h-full object-cover grayscale contrast-125" data-alt="A pixelated, glitch-heavy portrait of a designer in a dark room illuminated by neon green terminal screens. The visual style is grainy and high-contrast, featuring digital artifacts and chromatic aberration. The designer wears a techwear hoodie, looking directly at the camera with a serious expression. Neon green light spills across their face, creating a dramatic cyber-hacker atmosphere." src="https://lh3.googleusercontent.com/aida/ADBb0uhxnNK_GxFqI2a3DO6DX3s2gq2rFEzI8w2L8I0oHOsRBjdeauw4LGUwSVwqedvvIcLNgMIZyMMlydUuAZ4JQwgKXSZ0HidX_fbm5yjDkGQH5oCFwGCcx242-fka28KZTXVR93pE-1gQqZHU236wv1-Xp7ApRncSAX44_XOw5bxdjojB7YK5F0Kx28v064PV0ZRyExHBr6d641whQbbBwEZnl89KEP6e3S8moOCxPk-DznUPptg67VrfR6E"/>
 <div class="absolute inset-0 border-2 border-secondary translate-x-2 translate-y-2 -z-10"></div>
 </div>
 </div>
 </section>
 <!-- Skills Section -->
-<section class="py-xl px-margin" id="skills">
+<section class="py-xl px-margin relative" id="skills">
 <h3 class="font-headline-xl text-headline-xl text-primary-fixed mb-xl text-center glow-sm uppercase">Skill_Set_Inventory</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg"><!-- Skill 1: Basketball -->
 <div class="cyber-card p-md border-neon group hover:bg-primary-container/5 transition-all">
@@ -308,7 +330,7 @@
 </section>
 <!-- Portfolio Gallery -->
 <!-- Contact Section -->
-<section class="py-xl px-margin text-center" id="contact">
+<section class="py-xl px-margin relative" id="contact">
 <div class="cyber-card p-xl border-neon max-w-2xl mx-auto relative overflow-hidden">
 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-fixed to-transparent animate-[scan_3s_linear_infinite]"></div>
 <h3 class="font-headline-xl text-headline-xl text-primary-fixed mb-md glow-sm">ESTABLISH_UPLINK</h3>
@@ -343,12 +365,10 @@
 <a class="font-terminal-sm text-terminal-sm uppercase text-on-surface-variant hover:text-primary-fixed hover:glow-sm transition-all duration-500" href="#">TERMINAL_LOG</a>
 </div>
 <div class="font-label-caps text-label-caps text-primary-fixed opacity-50">
-                © 2024_CORE_VERSION_3.0
+                © 2026 All Right Reserved
             </div>
 </div>
 </footer>
 <!-- Global Cursor Glow Effect -->
 <div class="fixed top-0 left-0 w-8 h-8 bg-primary-fixed/20 blur-xl pointer-events-none rounded-full z-[10000]"></div>
-
-
 </body></html>
